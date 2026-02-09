@@ -1,5 +1,5 @@
 from datetime import datetime
-from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
+from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 from sqlalchemy import ForeignKey, Index, Integer, UniqueConstraint, DateTime
 
 from models.user_model import User
@@ -26,5 +26,6 @@ class Favorite(Base):
     news_id: Mapped[int] = mapped_column(Integer, ForeignKey(News.id), nullable=False, comment="新闻id")
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, nullable=False, comment="创建时间")
 
+
     def __repr__(self):
-        return f"<Favorite(id={self.id}, user_id={self.user_id}, news_id={self.news_id}, create_at={self.create_at})>"
+        return f"<Favorite(id={self.id}, user_id={self.user_id}, news_id={self.news_id}, created_at={self.created_at})>"

@@ -2,3 +2,6 @@ __pycache__/
 word/
 test_main.http
 learn.md
+config/
+.gitignore
+test.py
